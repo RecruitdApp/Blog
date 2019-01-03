@@ -5,18 +5,33 @@ import Img from 'gatsby-image'
 import styles from './style/general.module.scss'
 
 export default ({ article }) => (
-  <div className={styles.preview}>
-    {article.heroImage &&
-      <Img alt="" fluid={article.heroImage.fluid} />
-    }
-    <h3 className={styles.previewTitle}>
-      <Link to={`/${article.slug}`}>{article.title}</Link>
-    </h3>
-    <small>{article.publishDate}</small>
-    <p
-      dangerouslySetInnerHTML={{
-        __html: article.description.childMarkdownRemark.html,
-      }}
-    />
-  </div>
+  <article className={styles.article}>
+    {console.log(article)}
+    <Link to={`/${article.slug}`}>
+      <h3 className={styles.articleTitle}>{article.title}</h3>
+      <p
+        className={styles.articleExcerpt}
+        dangerouslySetInnerHTML={{
+          __html: article.description.childMarkdownRemark.html,
+        }}
+      />
+    </Link>
+
+    <div className={styles.articleAuthor}>
+      <Img
+        className={styles.articleAvatar}
+        alt={article.author.name}
+        fluid={article.author.image.fluid}
+        style={{
+          position: 'relative',
+          overflow: 'hidden',
+          display: 'inlineBlock',
+          width: '30px',
+          height: '30px',
+        }}
+      />{' '}
+      {article.author.name} <span>{article.publishDate}</span>
+    </div>
+    <Link to={`/${article.slug}`} className={styles.articleLink} />
+  </article>
 )

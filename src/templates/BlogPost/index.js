@@ -5,6 +5,7 @@ import get from 'lodash/get'
 import Img from 'gatsby-image'
 
 import Layout from '../../components/Layout'
+import styles from './style/general.module.scss'
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -13,27 +14,24 @@ class BlogPostTemplate extends React.Component {
 
     return (
       <Layout location={this.props.location}>
-        <div style={{ background: '#fff' }}>
+        <div>
           <Helmet title={`${post.title} | ${siteTitle}`} />
-          <div>
-            {post.heroImage && (
-              <Img alt={post.title} fluid={post.heroImage.fluid} />
-            )}
-          </div>
           <div className="wrapper">
-            <h1 className="section-headline">{post.title}</h1>
-            <p
-              style={{
-                display: 'block',
-              }}
-            >
-              {post.publishDate}
-            </p>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: post.body.childMarkdownRemark.html,
-              }}
-            />
+            <div className={styles.article}>
+              <h1 className="section-headline">{post.title}</h1>
+              <p
+                style={{
+                  display: 'block',
+                }}
+              >
+                {post.publishDate}
+              </p>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: post.body.childMarkdownRemark.html,
+                }}
+              />
+            </div>
           </div>
         </div>
       </Layout>

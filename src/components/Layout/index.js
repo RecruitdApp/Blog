@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import base from '../base.css'
+import base from '../../assets/styles/base.scss'
 import Container from '../Container'
 import Navigation from '../Navigation'
 
@@ -16,7 +16,7 @@ class Template extends React.Component {
 
     return (
       <Container>
-        <Navigation />
+        {/* <Navigation /> */}
         {children}
       </Container>
     )
