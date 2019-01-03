@@ -1,2 +1,107 @@
+@import 'src/assets/styles/global';
+
+.articleContainer {
+  background: url('../../../assets/images/bg-shape.png') no-repeat;
+  background-position: top -250px right -230px;
+  background-size: 464px 510px;
+}
+
 .article {
+  padding: 65px 0;
+}
+
+.articleHeader {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1.25em;
+
+  h1 {
+    font-size: 2em;
+    margin: 0;
+    margin-bottom: 0.5em;
+  }
+
+  p {
+    color: #74767b;
+    font-size: 0.938em;
+    margin: 0;
+  }
+}
+
+.articleAuthor {
+  border-bottom: 1px solid #eee;
+  display: flex;
+  padding: 1.25em 0;
+}
+
+.authorAvatar {
+  border-radius: 100%;
+  margin-right: 18px;
+  min-width: 40px;
+}
+
+.authorDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.authorName {
+  color: $color-secondary;
+  display: block;
+  font-size: 16px;
+  margin: 0;
+  margin-bottom: 5px;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.authorDescription {
+  font-size: 14px;
+  color: #74767b;
+  line-height: 1.4275em;
+  margin: 0;
+  margin-right: 50px;
+}
+
+.authorButton {
+  background: $color-primary;
+  border-radius: 4px;
+  box-shadow: none;
+  color: $white;
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px 25px;
+  text-decoration: none;
+  transition: background-color 0.5s ease;
+
+  &:hover {
+    background: darken($color-primary, 5%);
+  }
+}
+
+.content {
+  p {
+    line-height: 1.5em;
+
+    &:first-child {
+      color: $color-secondary;
+
+      font-family: 'HKGrotesk', sans-serif;
+      font-size: 1.25em;
+      line-height: 1.5em;
+    }
+  }
+
+  h2 {
+    margin-bottom: 20px;
+    margin-top: 30px;
+
+    font-size: 1.5em;
+    color: #1e1e1e;
+    letter-spacing: 0;
+    line-height: 34px;
+  }
 }

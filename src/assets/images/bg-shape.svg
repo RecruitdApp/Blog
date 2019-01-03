@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="464px" height="510px" viewBox="0 0 464 510" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.3 (67297) - http://www.bohemiancoding.com/sketch -->
+    <title>BG_Shapes (3)</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="20.7014388%" y1="23.2176354%" x2="57.0311508%" y2="53.7109482%" id="linearGradient-1">
+            <stop stop-color="#006291" offset="0.4370359%"></stop>
+            <stop stop-color="#11EBAC" offset="99.78%"></stop>
+        </linearGradient>
+        <linearGradient x1="25.9253392%" y1="32.2504416%" x2="66.3249216%" y2="66.134975%" id="linearGradient-2">
+            <stop stop-color="#006291" offset="0.4370359%"></stop>
+            <stop stop-color="#11EBAC" offset="99.78%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.4">
+        <g id="BG_Shapes-(3)">
+            <path d="M210.3,499.4 C276.8,472.8 251.5,403.6 374.9,374.2 C498.3,344.7 483.6,127 386.1,68.9 C282.7,7.1 87.8,94 24.2,148.2 C-39.4,202.4 25.4,573.4 210.3,499.4 Z" id="Path" fill="url(#linearGradient-1)"></path>
+            <path d="M109.6,412.1 C109.6,412.1 243.4,378.5 307.1,397.2 C370.7,415.9 426.7,384.6 424.8,288.7 C422.9,192.8 415.3,146.5 402,100.9 C388.7,55.1 347,7.7 267.3,1 C187.6,-5.7 92.6,53.2 38.4,143.4 C-15.8,233.6 17.6,384.5 109.6,412.1 Z" id="Path" fill="url(#linearGradient-2)"></path>
+        </g>
+    </g>
+</svg>

@@ -13,28 +13,65 @@ class BlogPostTemplate extends React.Component {
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
 
     return (
-      <Layout location={this.props.location}>
-        <div>
-          <Helmet title={`${post.title} | ${siteTitle}`} />
+      <div className={styles.articleContainer}>
+        <Layout location={this.props.location}>
+          {console.log(post.author)}
+          <Helmet title={`${post.title} | Recruitd`} />
           <div className="wrapper">
             <div className={styles.article}>
-              <h1 className="section-headline">{post.title}</h1>
-              <p
-                style={{
-                  display: 'block',
-                }}
-              >
-                {post.publishDate}
-              </p>
+              <div className={styles.articleHeader}>
+                <h1>{post.title}</h1>
+                <p>{post.publishDate}</p>
+              </div>
+              <div className={styles.articleAuthor}>
+                <a
+                  href="https://www.recruitd.com/antoniogiugno"
+                  target="_blank"
+                >
+                  <Img
+                    className={styles.authorAvatar}
+                    alt={post.author.name}
+                    fluid={post.author.image.fluid}
+                    style={{
+                      position: 'relative',
+                      overflow: 'hidden',
+                      width: '40px',
+                      height: '40px',
+                    }}
+                  />
+                </a>
+                <div className={styles.authorDetails}>
+                  <a
+                    href="https://www.recruitd.com/antoniogiugno"
+                    target="_blank"
+                    className={styles.authorName}
+                  >
+                    {post.author.name}
+                  </a>
+                  <p className={styles.authorDescription}>
+                    {post.author.shortBio.shortBio}
+                  </p>
+                </div>
+                <div>
+                  <a
+                    href="https://www.recruitd.com/antoniogiugno"
+                    target="_blank"
+                    className={styles.authorButton}
+                  >
+                    Follow
+                  </a>
+                </div>
+              </div>
               <div
+                className={styles.content}
                 dangerouslySetInnerHTML={{
                   __html: post.body.childMarkdownRemark.html,
                 }}
               />
             </div>
           </div>
-        </div>
-      </Layout>
+        </Layout>
+      </div>
     )
   }
 }
@@ -49,6 +86,18 @@ export const pageQuery = graphql`
       heroImage {
         fluid(maxWidth: 1200, quality: 100) {
           ...GatsbyContentfulFluid
+        }
+      }
+      author {
+        id
+        name
+        image {
+          fluid(maxWidth: 40, maxHeight: 40, resizingBehavior: SCALE) {
+            ...GatsbyContentfulFluid
+          }
+        }
+        shortBio {
+          shortBio
         }
       }
       body {

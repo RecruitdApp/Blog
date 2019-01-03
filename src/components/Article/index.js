@@ -29,7 +29,7 @@ export default ({ article }) => (
           width: '30px',
           height: '30px',
         }}
-      />{' '}
+      />
       {article.author.name} <span>{article.publishDate}</span>
     </div>
     <Link to={`/${article.slug}`} className={styles.articleLink} />
