@@ -1,9 +1,9 @@
 {
-  "name": "Contentful Gatsby Starter",
-  "description": "Gatsby starter for a Contentful project.",
+  "name": "Recruitd Blog",
+  "description": "Making employment easy.",
   "keywords": [
-    "contentful",
-    "gatsby",
+    "recruitd",
+    "recruitment",
     "static",
     "ssg"
   ],
