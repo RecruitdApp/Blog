@@ -39,6 +39,20 @@
   display: none;
 
   @include media-tablet() {
+    align-items: center;
     display: flex;
+  }
+}
+
+.button {
+  background: $color-primary;
+  border-radius: 4px;
+  color: $white !important;
+  font-weight: 400 !important;
+  padding: 7px 13px;
+  text-decoration: none !important;
+
+  &:hover {
+    background: darken($color-primary, 5%);
   }
 }

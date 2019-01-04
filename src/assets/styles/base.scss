@@ -38,6 +38,7 @@ a {
 }
 
 .wrapper {
+  min-height: calc(100vh - 330px);
   max-width: 600px;
   width: calc(100% - 10vmin);
   margin: 0 auto;
