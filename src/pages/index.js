@@ -12,7 +12,7 @@ class RootIndex extends React.Component {
     return (
       <Layout location={this.props.location}>
         <div>
-          <Helmet title={title + ' | ' + description} />
+          <Helmet title={`${title} - ${description}`} />
           <div className="wrapper">
             <ul className="article-list">
               {posts.map(({ node }) => {

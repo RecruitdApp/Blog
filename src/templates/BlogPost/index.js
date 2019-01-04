@@ -10,12 +10,12 @@ import styles from './style/general.module.scss'
 class BlogPostTemplate extends React.Component {
   render() {
     const post = get(this.props, 'data.contentfulBlogPost')
-    const siteTitle = get(this.props, 'data.site.siteMetadata.title')
+    const { title, description } = get(this.props, 'data.site.siteMetadata')
 
     return (
       <div className={styles.articleContainer}>
         <Layout location={this.props.location}>
-          <Helmet title={`${post.title} | Recruitd`} />
+          <Helmet title={`${post.title} | ${title} - ${description}`} />
           <div className="wrapper">
             <div className={styles.article}>
               <div className={styles.articleHeader}>
@@ -79,6 +79,12 @@ export default BlogPostTemplate
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
+    site {
+      siteMetadata {
+        title
+        description
+      }
+    }
     contentfulBlogPost(slug: { eq: $slug }) {
       title
       publishDate(formatString: "MMMM Do, YYYY")

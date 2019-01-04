@@ -33,16 +33,16 @@ class Layout extends React.Component {
             { rel: 'shortcut icon', type: 'image/png', href: `${favicon}` },
           ]}
         >
-          <meta property="og:site_name" content={title + ' | ' + description} />
+          <meta property="og:site_name" content={`${title} - ${description}`} />
           <meta property="og:url" content="https://blog.recruitd.com" />
-          <meta property="og:title" content={title + ' | ' + description} />
+          <meta property="og:title" content={`${title} - ${description}`} />
           <meta property="og:type" content="website" />
           <meta property="og:description" content={shortBio} />
           <meta property="og:image" content={image} />
-          <meta property="og:image:alt" content={title + ' | ' + description} />
+          <meta property="og:image:alt" content={`${title} - ${description}`} />
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:creator" content="recruitdapp" />
-          <meta name="twitter:title" content={title + ' | ' + description} />
+          <meta name="twitter:title" content={`${title} - ${description}`} />
           <meta name="twitter:description" content={shortBio} />
           <meta name="twitter:image" content={image} />
         </Helmet>
