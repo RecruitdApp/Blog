@@ -25,9 +25,15 @@ class Template extends React.Component {
             { rel: 'shortcut icon', type: 'image/png', href: `${favicon}` },
           ]}
         >
-          <meta property="og:site_name" content="Recruitd Resources" />
+          <meta
+            property="og:site_name"
+            content="Recruitd Resources | Helping you navigate employment"
+          />
           <meta property="og:url" content="https://blog.recruitd.com" />
-          <meta property="og:title" content="Recruitd Blog" />
+          <meta
+            property="og:title"
+            content="Recruitd Resources | Helping you navigate employment"
+          />
           <meta property="og:type" content="website" />
           <meta
             property="og:description"
@@ -37,10 +43,16 @@ class Template extends React.Component {
             property="og:image"
             content="https://s3.eu-west-2.amazonaws.com/alpha-recruitd/recruitd-banner.jpg"
           />
-          <meta property="og:image:alt" content="Recruitd Blog" />
+          <meta
+            property="og:image:alt"
+            content="Recruitd Resources | Helping you navigate employment"
+          />
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:creator" content="recruitdapp" />
-          <meta name="twitter:title" content="Recruitd Blog" />
+          <meta
+            name="twitter:title"
+            content="Recruitd Resources | Helping you navigate employment"
+          />
           <meta
             name="twitter:description"
             content="Whether securing your next job, hiring into to your organisation, or recruiting for a client, Recruitd is the easiest place to do it."
