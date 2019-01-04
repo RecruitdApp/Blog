@@ -1,9 +1,12 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import Helmet from 'react-helmet'
 import base from '../../assets/styles/base.scss'
 import Container from '../Container'
 import Footer from '../Footer'
 import Navigation from '../Navigation'
+
+import favicon from '../../../static/favicon.ico'
 
 class Template extends React.Component {
   render() {
@@ -17,6 +20,11 @@ class Template extends React.Component {
 
     return (
       <>
+        <Helmet
+          link={[
+            { rel: 'shortcut icon', type: 'image/png', href: `${favicon}` },
+          ]}
+        />
         <Navigation />
         <Container>{children}</Container>
         <Footer />

@@ -41,7 +41,11 @@ a {
   max-width: 600px;
   width: calc(100% - 10vmin);
   margin: 0 auto;
-  padding: 100px 0;
+  padding: 90px 0 10px;
+
+  @include media-tablet() {
+    padding: 100px 0 30px;
+  }
 }
 
 /**

@@ -15,7 +15,6 @@ exports.createPages = ({ graphql, actions }) => {
                 node {
                   title
                   slug
-                  author
                 }
               }
             }

@@ -13,6 +13,11 @@
   z-index: 10;
 }
 
+.brand {
+  padding-top: 17px;
+  padding-bottom: 13px;
+}
+
 .navigationItem {
   display: inline-flex;
   align-items: center;
@@ -31,5 +36,9 @@
 }
 
 .navigationRight {
-  display: flex;
+  display: none;
+
+  @include media-tablet() {
+    display: flex;
+  }
 }
