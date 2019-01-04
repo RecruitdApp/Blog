@@ -4,10 +4,12 @@
   background: url('../../../assets/images/bg-shape.png') no-repeat;
   background-position: top -250px right -230px;
   background-size: 464px 510px;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 .article {
-  padding: 65px 0;
+  // padding: 65px 0;
 }
 
 .articleHeader {

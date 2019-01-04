@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import base from '../../assets/styles/base.scss'
 import Container from '../Container'
+import Footer from '../Footer'
 import Navigation from '../Navigation'
 
 class Template extends React.Component {
@@ -18,6 +19,7 @@ class Template extends React.Component {
       <>
         <Navigation />
         <Container>{children}</Container>
+        <Footer />
       </>
     )
   }
