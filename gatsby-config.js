@@ -22,8 +22,8 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: 'Recruitd Blog',
-    description: 'Making employment easy',
+    title: 'Recruitd Resources',
+    description: 'Helping you navigate employment',
   },
   pathPrefix: '/gatsby-contentful-starter',
   plugins: [

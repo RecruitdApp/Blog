@@ -15,7 +15,6 @@ class BlogPostTemplate extends React.Component {
     return (
       <div className={styles.articleContainer}>
         <Layout location={this.props.location}>
-          {console.log(post.author)}
           <Helmet title={`${post.title} | Recruitd`} />
           <div className="wrapper">
             <div className={styles.article}>

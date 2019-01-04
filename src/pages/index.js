@@ -1,18 +1,18 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
-import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import Layout from '../components/Layout'
 import ArticlePreview from '../components/Article'
 
 class RootIndex extends React.Component {
   render() {
-    const posts = get(this, 'props.data.allContentfulBlogPost.edges')
+    const { title, description } = this.props.data.site.siteMetadata
+    const posts = this.props.data.allContentfulBlogPost.edges
 
     return (
       <Layout location={this.props.location}>
         <div>
-          <Helmet title="Recruitd Resources | Helping you navigate employment" />
+          <Helmet title={title + ' | ' + description} />
           <div className="wrapper">
             <ul className="article-list">
               {posts.map(({ node }) => {
@@ -34,6 +34,12 @@ export default RootIndex
 
 export const pageQuery = graphql`
   query RootIndexQuery {
+    site {
+      siteMetadata {
+        title
+        description
+      }
+    }
     allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
       edges {
         node {

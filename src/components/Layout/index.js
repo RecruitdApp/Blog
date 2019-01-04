@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import base from '../../assets/styles/base.scss'
 import Container from '../Container'
@@ -8,9 +8,17 @@ import Navigation from '../Navigation'
 
 import favicon from '../../../static/favicon.ico'
 
-class Template extends React.Component {
+class Layout extends React.Component {
   render() {
     const { location, children } = this.props
+
+    const title = 'Recruitd Resources'
+    const description = 'Helping you navigate employment'
+    const shortBio =
+      'Whether securing your next job, hiring into to your organisation, or recruiting for a client, Recruitd is the easiest place to do it.'
+    const image =
+      'https://s3.eu-west-2.amazonaws.com/alpha-recruitd/recruitd-banner.jpg'
+
     let header
 
     let rootPath = `/`
@@ -25,42 +33,18 @@ class Template extends React.Component {
             { rel: 'shortcut icon', type: 'image/png', href: `${favicon}` },
           ]}
         >
-          <meta
-            property="og:site_name"
-            content="Recruitd Resources | Helping you navigate employment"
-          />
+          <meta property="og:site_name" content={title + ' | ' + description} />
           <meta property="og:url" content="https://blog.recruitd.com" />
-          <meta
-            property="og:title"
-            content="Recruitd Resources | Helping you navigate employment"
-          />
+          <meta property="og:title" content={title + ' | ' + description} />
           <meta property="og:type" content="website" />
-          <meta
-            property="og:description"
-            content="Whether securing your next job, hiring into to your organisation, or recruiting for a client, Recruitd is the easiest place to do it."
-          />
-          <meta
-            property="og:image"
-            content="https://s3.eu-west-2.amazonaws.com/alpha-recruitd/recruitd-banner.jpg"
-          />
-          <meta
-            property="og:image:alt"
-            content="Recruitd Resources | Helping you navigate employment"
-          />
+          <meta property="og:description" content={shortBio} />
+          <meta property="og:image" content={image} />
+          <meta property="og:image:alt" content={title + ' | ' + description} />
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:creator" content="recruitdapp" />
-          <meta
-            name="twitter:title"
-            content="Recruitd Resources | Helping you navigate employment"
-          />
-          <meta
-            name="twitter:description"
-            content="Whether securing your next job, hiring into to your organisation, or recruiting for a client, Recruitd is the easiest place to do it."
-          />
-          <meta
-            name="twitter:image"
-            content="https://s3.eu-west-2.amazonaws.com/alpha-recruitd/recruitd-banner.jpg"
-          />
+          <meta name="twitter:title" content={title + ' | ' + description} />
+          <meta name="twitter:description" content={shortBio} />
+          <meta name="twitter:image" content={image} />
         </Helmet>
 
         <Navigation />
@@ -71,4 +55,4 @@ class Template extends React.Component {
   }
 }
 
-export default Template
+export default Layout
