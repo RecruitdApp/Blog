@@ -55,7 +55,7 @@ export default () => (
           </a>
         </li>
         <li className={styles.navigationItem}>
-          <a href="/" title="Jobs" target="_blank">
+          <a href="/" title="Jobs">
             Resources
           </a>
         </li>
