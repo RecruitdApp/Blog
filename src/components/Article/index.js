@@ -6,7 +6,6 @@ import styles from './style/general.module.scss'
 
 export default ({ article }) => (
   <article className={styles.article}>
-    {console.log(article)}
     <Link to={`/${article.slug}`}>
       <h3 className={styles.articleTitle}>{article.title}</h3>
       <p className={styles.articleExcerpt}>{article.description.description}</p>

@@ -20,7 +20,7 @@ export default () => (
             </g>
           </svg>
           <p className={styles.footerCopyright}>
-            Copyright © 2018 Recruitd Limited
+            Copyright © 2019 Recruitd Limited
           </p>
         </div>
         <div className={styles.footerColumn}>
