@@ -68,7 +68,10 @@
   color: #74767b;
   line-height: 1.4275em;
   margin: 0;
-  margin-right: 50px;
+
+  @include media-tablet() {
+    margin-right: 50px;
+  }
 }
 
 .authorButton {
@@ -76,7 +79,7 @@
   border-radius: 4px;
   box-shadow: none;
   color: $white;
-  display: block;
+  display: none;
   font-size: 16px;
   font-weight: 500;
   padding: 10px 25px;
@@ -85,6 +88,10 @@
 
   &:hover {
     background: darken($color-primary, 5%);
+  }
+
+  @include media-tablet() {
+    display: block;
   }
 }
 

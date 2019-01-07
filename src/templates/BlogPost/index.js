@@ -5,13 +5,20 @@ import get from 'lodash/get'
 import Img from 'gatsby-image'
 
 import Layout from '../../components/Layout'
+import Share from '../../components/SocialShare'
+
 import styles from './style/general.module.scss'
 
 class BlogPostTemplate extends React.Component {
   render() {
     const post = get(this.props, 'data.contentfulBlogPost')
     const { title, description } = get(this.props, 'data.site.siteMetadata')
-    console.log(post)
+    const shareSlug = post.slug
+    const shareUrl = 'https://blog.recruitd.com/'
+    const twitterHandle = '@recruitdapp'
+    const shareTitle = post.title
+    console.log(this.props)
+
     return (
       <div className={styles.articleContainer}>
         <Layout location={this.props.location}>
@@ -72,6 +79,15 @@ class BlogPostTemplate extends React.Component {
                   </a>
                 </div>
               </div>
+              <Share
+                socialConfig={{
+                  twitterHandle,
+                  config: {
+                    url: `${shareUrl}${shareSlug}`,
+                    title: shareTitle,
+                  },
+                }}
+              />
               <div
                 className={styles.content}
                 dangerouslySetInnerHTML={{
@@ -101,6 +117,7 @@ export const pageQuery = graphql`
       description {
         description
       }
+      slug
       publishDate(formatString: "MMMM Do, YYYY")
       heroImage {
         fluid(maxWidth: 1200, quality: 100) {
