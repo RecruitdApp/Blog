@@ -60,7 +60,7 @@ export default () => (
           </a>
         </li>
       </ul>
-      <ul>
+      <ul className={styles.navigationMain}>
         <li className={styles.navigationItem}>
           <a
             href="https://www.recruitd.com/login"

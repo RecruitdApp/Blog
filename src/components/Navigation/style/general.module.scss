@@ -6,11 +6,15 @@
   border-bottom: 1px solid #eee;
   display: flex;
   justify-content: space-between;
-  padding: 0 30px;
+  padding: 0 20px;
   position: fixed;
   left: 0;
   right: 0;
   z-index: 10;
+
+  @include media-tablet() {
+    padding: 0 30px;
+  }
 }
 
 .brand {
@@ -36,11 +40,36 @@
 }
 
 .navigationRight {
+  display: flex;
+  @include media-tablet() {
+    align-items: center;
+  }
+}
+
+.navigationRight ul {
   display: none;
+  padding: 0;
 
   @include media-tablet() {
     align-items: center;
     display: flex;
+    flex-direction: row;
+  }
+}
+
+@include media-only-mobile() {
+  .navigationMain {
+    display: flex !important;
+
+    li {
+      &:first-child {
+        display: none;
+      }
+
+      &:last-child {
+        margin: 0;
+      }
+    }
   }
 }
 
