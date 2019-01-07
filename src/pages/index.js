@@ -56,8 +56,8 @@ export const pageQuery = graphql`
             id
             name
             image {
-              fluid(maxWidth: 30, maxHeight: 30, resizingBehavior: SCALE) {
-                ...GatsbyContentfulFluid
+              fixed(width: 30, height: 30, resizingBehavior: SCALE) {
+                ...GatsbyContentfulFixed
               }
             }
           }

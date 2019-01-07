@@ -41,7 +41,7 @@ class BlogPostTemplate extends React.Component {
                   <Img
                     className={styles.authorAvatar}
                     alt={post.author.name}
-                    fluid={post.author.image.fluid}
+                    fixed={post.author.image.fixed}
                     style={{
                       position: 'relative',
                       overflow: 'hidden',
@@ -111,8 +111,8 @@ export const pageQuery = graphql`
         id
         name
         image {
-          fluid(maxWidth: 40, maxHeight: 40, resizingBehavior: SCALE) {
-            ...GatsbyContentfulFluid
+          fixed(width: 40, height: 40, resizingBehavior: SCALE) {
+            ...GatsbyContentfulFixed
           }
         }
         shortBio {

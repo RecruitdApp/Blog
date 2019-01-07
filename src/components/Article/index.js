@@ -15,7 +15,7 @@ export default ({ article }) => (
       <Img
         className={styles.articleAvatar}
         alt={article.author.name}
-        fluid={article.author.image.fluid}
+        fixed={article.author.image.fixed}
         style={{
           position: 'relative',
           overflow: 'hidden',
