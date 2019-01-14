@@ -17,9 +17,7 @@ class BlogPostTemplate extends React.Component {
     const shareUrl = 'https://blog.recruitd.com/'
     const twitterHandle = '@recruitdapp'
     const shareTitle = post.title
-    const socialImage = post.socialImage.fluid
-      ? post.socialImage.fluid.src
-      : null
+    const socialImage = post.socialImage ? post.socialImage.fluid.src : null
 
     return (
       <div className={styles.articleContainer}>
