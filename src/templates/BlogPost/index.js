@@ -33,8 +33,12 @@ class BlogPostTemplate extends React.Component {
               name="twitter:description"
               content={post.description.description}
             />
-            {socialImage && <meta property="og:image" content={socialImage} />}
-            {socialImage && <meta name="twitter:image" content={socialImage} />}
+            {socialImage && (
+              <meta property="og:image" content={`https:${socialImage}`} />
+            )}
+            {socialImage && (
+              <meta name="twitter:image" content={`https:${socialImage}`} />
+            )}
           </Helmet>
           <div className="wrapper">
             <div className={styles.article}>
