@@ -17,7 +17,7 @@ class BlogPostTemplate extends React.Component {
     const shareUrl = 'https://blog.recruitd.com/'
     const twitterHandle = '@recruitdapp'
     const shareTitle = post.title
-    console.log(this.props)
+    const socialImage = post.socialImage.fluid.src
 
     return (
       <div className={styles.articleContainer}>
@@ -33,6 +33,8 @@ class BlogPostTemplate extends React.Component {
               name="twitter:description"
               content={post.description.description}
             />
+            {socialImage && <meta property="og:image" content={socialImage} />}
+            {socialImage && <meta name="twitter:image" content={socialImage} />}
           </Helmet>
           <div className="wrapper">
             <div className={styles.article}>
@@ -120,6 +122,11 @@ export const pageQuery = graphql`
       slug
       publishDate(formatString: "MMMM Do, YYYY")
       heroImage {
+        fluid(maxWidth: 1200, quality: 100) {
+          ...GatsbyContentfulFluid
+        }
+      }
+      socialImage {
         fluid(maxWidth: 1200, quality: 100) {
           ...GatsbyContentfulFluid
         }
