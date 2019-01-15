@@ -47,10 +47,7 @@ class BlogPostTemplate extends React.Component {
                 <p>{post.publishDate}</p>
               </div>
               <div className={styles.articleAuthor}>
-                <a
-                  href="https://www.recruitd.com/antoniogiugno"
-                  target="_blank"
-                >
+                <a href={post.author.recruitd} target="_blank">
                   <Img
                     className={styles.authorAvatar}
                     alt={post.author.name}
@@ -65,7 +62,7 @@ class BlogPostTemplate extends React.Component {
                 </a>
                 <div className={styles.authorDetails}>
                   <a
-                    href="https://www.recruitd.com/antoniogiugno"
+                    href={post.author.recruitd}
                     target="_blank"
                     className={styles.authorName}
                   >
@@ -77,7 +74,7 @@ class BlogPostTemplate extends React.Component {
                 </div>
                 <div>
                   <a
-                    href="https://www.recruitd.com/antoniogiugno"
+                    href={post.author.recruitd}
                     target="_blank"
                     className={styles.authorButton}
                   >
@@ -138,6 +135,7 @@ export const pageQuery = graphql`
       author {
         id
         name
+        recruitd
         image {
           fixed(width: 40, height: 40, resizingBehavior: SCALE) {
             ...GatsbyContentfulFixed
