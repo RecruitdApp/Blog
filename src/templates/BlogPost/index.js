@@ -137,7 +137,7 @@ export const pageQuery = graphql`
         name
         recruitd
         image {
-          fixed(width: 40, height: 40, resizingBehavior: SCALE) {
+          fixed(width: 40, height: 40, resizingBehavior: SCALE, quality: 100) {
             ...GatsbyContentfulFixed
           }
         }

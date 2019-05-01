@@ -56,7 +56,12 @@ export const pageQuery = graphql`
             id
             name
             image {
-              fixed(width: 30, height: 30, resizingBehavior: SCALE) {
+              fixed(
+                width: 30
+                height: 30
+                resizingBehavior: SCALE
+                quality: 100
+              ) {
                 ...GatsbyContentfulFixed
               }
             }
