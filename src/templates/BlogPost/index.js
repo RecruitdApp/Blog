@@ -47,39 +47,22 @@ class BlogPostTemplate extends React.Component {
                 <p>{post.publishDate}</p>
               </div>
               <div className={styles.articleAuthor}>
-                <a href={post.author.recruitd} target="_blank">
-                  <Img
-                    className={styles.authorAvatar}
-                    alt={post.author.name}
-                    fixed={post.author.image.fixed}
-                    style={{
-                      position: 'relative',
-                      overflow: 'hidden',
-                      width: '40px',
-                      height: '40px',
-                    }}
-                  />
-                </a>
+                <Img
+                  className={styles.authorAvatar}
+                  alt={post.author.name}
+                  fixed={post.author.image.fixed}
+                  style={{
+                    position: 'relative',
+                    overflow: 'hidden',
+                    width: '40px',
+                    height: '40px',
+                  }}
+                />
                 <div className={styles.authorDetails}>
-                  <a
-                    href={post.author.recruitd}
-                    target="_blank"
-                    className={styles.authorName}
-                  >
-                    {post.author.name}
-                  </a>
+                  <span className={styles.authorName}>{post.author.name}</span>
                   <p className={styles.authorDescription}>
                     {post.author.shortBio.shortBio}
                   </p>
-                </div>
-                <div>
-                  <a
-                    href={post.author.recruitd}
-                    target="_blank"
-                    className={styles.authorButton}
-                  >
-                    Follow
-                  </a>
                 </div>
               </div>
               <Share

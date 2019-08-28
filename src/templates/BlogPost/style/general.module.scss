@@ -1,9 +1,6 @@
 @import 'src/assets/styles/global';
 
 .articleContainer {
-  background: url('../../../assets/images/bg-shape.png') no-repeat;
-  background-position: top -250px right -230px;
-  background-size: 464px 510px;
   overflow-x: hidden;
   width: 100%;
 }
@@ -57,11 +54,6 @@
   font-size: 16px;
   margin: 0;
   margin-bottom: 5px;
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-  }
 }
 
 .authorDescription {

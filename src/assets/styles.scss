@@ -1,0 +1,178 @@
+$mobileS: '320px';
+$mobileM: '375px';
+$mobileL: '425px';
+$tablet: '768px';
+$laptop: '1024px';
+$laptopL: '1440px';
+$desktop: '2560px';
+
+$white: rgb(255, 255, 255);
+$primaryblue: rgb(0, 74, 109);
+
+@import url('https://rsms.me/inter/inter.css');
+
+html {
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  color: #333;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 18px;
+  margin: 0;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: 0.15s ease-in-out color;
+
+  &:hover {
+    color: inherit;
+    text-decoration: underline;
+  }
+}
+
+button {
+  background: transparent;
+  border: 0;
+  box-shadow: 0;
+  cursor: pointer;
+  font-size: inherit;
+  padding: 0;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: #1f1f1f;
+  font-family: 'HKGrotesk-SemiBold', -apple-system, BlinkMacSystemFont,
+    sans-serif;
+}
+
+h1 {
+  font-size: 30px;
+  margin-bottom: 20px;
+
+  @media screen and (min-width: $tablet) {
+    font-size: 45px;
+    margin-bottom: 30px;
+  }
+}
+
+h2 {
+  font-size: 25px;
+  margin-bottom: 10px;
+
+  @media screen and (min-width: $tablet) {
+    font-size: 35px;
+    margin-bottom: 20px;
+  }
+}
+
+h3 {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  line-height: 20px;
+
+  @media screen and (min-width: $tablet) {
+    font-size: 24px;
+    letter-spacing: 0;
+    line-height: 30px;
+  }
+}
+
+p {
+  line-height: 28px;
+  margin-bottom: 30px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.inner-wrapper {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 0 auto;
+  max-width: 1070px;
+  width: 100%;
+}
+
+.outer-wrapper {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 0 auto;
+  max-width: 1070px;
+  width: 100%;
+}
+
+.modal {
+  &-open {
+    padding-right: 0 !important;
+  }
+
+  &-content {
+    background: #ffffff;
+    border: 0;
+    border-radius: 32px;
+    box-shadow: 0 17px 22px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  &-body {
+    align-items: center;
+    display: flex;
+    min-height: 350px;
+    padding: 40px;
+    width: 100%;
+  }
+}
+
+.form-label {
+  color: #a2a2a2;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: normal;
+  margin: 0;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.form-control {
+  background: #fff;
+  border: 0;
+  border-bottom: 1px solid #a7abb0;
+  border-radius: 0;
+  color: #1e1e1e;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.form-control-file {
+  margin-top: 15px;
+}
