@@ -22,7 +22,7 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: 'Recruitd - Helping you navigate employment',
+    title: 'Recruitd - Helping you navigate recruitment',
     description: `We’ll deliver the talent your business needs. No hassle, no fuss – just hiring managers singing your praises.`,
     siteUrl: 'https://blog.recruitd.com',
     canonicalUrl: 'https://blog.recruitd.com',
