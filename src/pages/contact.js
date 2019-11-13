@@ -144,7 +144,14 @@ const Contact = () => {
                   required
                 />
               </Form.Group>
-              <Button aria-label="Submit" type="submit">
+              <Button
+                aria-label="Submit"
+                type="submit"
+                style={{
+                  backgroundColor: 'rgb(0,74,109)',
+                  borderColor: 'rgb(0,74,109)',
+                }}
+              >
                 Submit
               </Button>
             </Form>
