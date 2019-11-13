@@ -97,6 +97,7 @@ const Contact = () => {
       <div>
         <Helmet title={`${title} - ${description}`} />
         <div className="wrapper">
+          <h2>Contact</h2>
           {!success ? (
             <Form name="contact" onSubmit={e => submit(e)}>
               <Form.Group controlId="formFirstName">
@@ -148,7 +149,7 @@ const Contact = () => {
               </Button>
             </Form>
           ) : (
-            'Thanks for sign up.'
+            `Thanks for your interest in Recruitd – we'll be in touch soon.`
           )}
         </div>
       </div>
