@@ -3,14 +3,59 @@ import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import get from 'lodash/get'
 import Img from 'gatsby-image'
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types'
 
 import Layout from '../../components/Layout'
 import Share from '../../components/SocialShare'
 
 import styles from './style/general.module.scss'
 
+const document = {
+  nodeType: 'document',
+  content: [
+    {
+      nodeType: 'paragraph',
+      content: [
+        {
+          nodeType: 'text',
+          value: 'Hello',
+          marks: [{ type: 'bold' }],
+        },
+        {
+          nodeType: 'text',
+          value: ' world!',
+          marks: [{ type: 'italic' }],
+        },
+      ],
+    },
+  ],
+  nodeType: 'embedded-entry-block',
+  data: {
+    target: (...)Link<'Entry'>(...);
+  },
+}
+
+const Bold = ({ children }) => <strong>{children}</strong>
+const Text = ({ children }) => <p>{children}</p>
+const Comp = () => <h2>Test</h2>
+
 class BlogPostTemplate extends React.Component {
   render() {
+    const options = {
+      renderMark: {
+        [MARKS.BOLD]: text => <Bold>{text}</Bold>,
+      },
+      renderNode: {
+        [BLOCKS.PARAGRAPH]: (node, children) => <Text>{children}</Text>,
+      },
+      renderNode: {
+        [BLOCKS.EMBEDDED_ENTRY]: node => {
+          return <Comp />
+        },
+      },
+    }
+
     const post = get(this.props, 'data.contentfulBlogPost')
     const { title, description } = get(this.props, 'data.site.siteMetadata')
     const shareSlug = post.slug
@@ -65,7 +110,7 @@ class BlogPostTemplate extends React.Component {
                   </p>
                 </div>
               </div>
-              <Share
+              {/* <Share
                 socialConfig={{
                   twitterHandle,
                   config: {
@@ -73,13 +118,17 @@ class BlogPostTemplate extends React.Component {
                     title: shareTitle,
                   },
                 }}
-              />
-              <div
+              /> */}
+              {console.log(post.postBody.json)}
+              {/* {documentToReactComponents(post.postBody.json, options)} */}
+              {documentToReactComponents(document, options)}
+
+              {/* <div
                 className={styles.content}
                 dangerouslySetInnerHTML={{
                   __html: post.body.childMarkdownRemark.html,
                 }}
-              />
+              /> */}
             </div>
           </div>
         </Layout>
@@ -132,6 +181,9 @@ export const pageQuery = graphql`
         childMarkdownRemark {
           html
         }
+      }
+      postBody {
+        json
       }
     }
   }
