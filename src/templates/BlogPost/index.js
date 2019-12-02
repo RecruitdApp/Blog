@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import get from 'lodash/get'
@@ -6,39 +6,43 @@ import Img from 'gatsby-image'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types'
 
+import { getAssets } from './methods.js'
+
 import Layout from '../../components/Layout'
 import Share from '../../components/SocialShare'
+import VideoPlayer from '../../components/VideoPlayer/VideoPlayer'
 
 import styles from './style/general.module.scss'
 
-const document = {
-  nodeType: 'document',
-  content: [
-    {
-      nodeType: 'paragraph',
-      content: [
-        {
-          nodeType: 'text',
-          value: 'Hello',
-          marks: [{ type: 'bold' }],
-        },
-        {
-          nodeType: 'text',
-          value: ' world!',
-          marks: [{ type: 'italic' }],
-        },
-      ],
-    },
-  ],
-  nodeType: 'embedded-entry-block',
-  data: {
-    target: (...)Link<'Entry'>(...);
-  },
-}
-
 const Bold = ({ children }) => <strong>{children}</strong>
 const Text = ({ children }) => <p>{children}</p>
-const Comp = () => <h2>Test</h2>
+const Comp = ({ node }) => {
+  const [asset, setAsset] = useState(undefined)
+
+  const id = node.data.target.sys.id.substring(1)
+  useEffect(() => {
+    getAssets(id).then(asset => {
+      setAsset(asset)
+    })
+  }, [])
+  // console.log(asset)
+
+  return (
+    <>
+      {asset && asset.fields.file.contentType === 'image/png' ? (
+        <p>
+          <img src={asset.fields.file.url} alt={asset.fields.file.fileName} />
+        </p>
+      ) : asset && asset.fields.file.contentType === 'video/mp4' ? (
+        <div style={{ marginBottom: 30 }}>
+          <VideoPlayer autoPlay={false} src={asset.fields.file.url} />
+        </div>
+      ) : (
+        ''
+      )}
+    </>
+  )
+}
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -50,8 +54,8 @@ class BlogPostTemplate extends React.Component {
         [BLOCKS.PARAGRAPH]: (node, children) => <Text>{children}</Text>,
       },
       renderNode: {
-        [BLOCKS.EMBEDDED_ENTRY]: node => {
-          return <Comp />
+        [BLOCKS.EMBEDDED_ASSET]: node => {
+          return <Comp node={node} />
         },
       },
     }
@@ -110,7 +114,7 @@ class BlogPostTemplate extends React.Component {
                   </p>
                 </div>
               </div>
-              {/* <Share
+              {/*<Share
                 socialConfig={{
                   twitterHandle,
                   config: {
@@ -118,17 +122,17 @@ class BlogPostTemplate extends React.Component {
                     title: shareTitle,
                   },
                 }}
-              /> */}
-              {console.log(post.postBody.json)}
-              {/* {documentToReactComponents(post.postBody.json, options)} */}
-              {documentToReactComponents(document, options)}
-
-              {/* <div
-                className={styles.content}
-                dangerouslySetInnerHTML={{
-                  __html: post.body.childMarkdownRemark.html,
-                }}
-              /> */}
+              />*/}
+              {post.postBody ? (
+                documentToReactComponents(post.postBody.json, options)
+              ) : (
+                <div
+                  className={styles.content}
+                  dangerouslySetInnerHTML={{
+                    __html: post.body.childMarkdownRemark.html,
+                  }}
+                />
+              )}
             </div>
           </div>
         </Layout>
