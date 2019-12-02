@@ -1,12 +1,5 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import {
-  Media,
-  Player,
-  withMediaProps,
-  withKeyboardControls,
-  controls,
-} from 'react-media-player'
+import React from 'react'
+import { Media, Player, controls } from 'react-media-player'
 import PlayPause from './PlayPause'
 import MuteUnmute from './MuteUnmute'
 import Fullscreen from './Fullscreen'

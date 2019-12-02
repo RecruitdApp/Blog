@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 import get from 'lodash/get'
 import Img from 'gatsby-image'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
-import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types'
+import { BLOCKS, MARKS } from '@contentful/rich-text-types'
 
 import { getAssets } from './methods.js'
 
@@ -24,7 +24,7 @@ const Comp = ({ node }) => {
     getAssets(id).then(asset => {
       setAsset(asset)
     })
-  }, [])
+  }, [id])
   // console.log(asset)
 
   return (
@@ -52,8 +52,6 @@ class BlogPostTemplate extends React.Component {
       },
       renderNode: {
         [BLOCKS.PARAGRAPH]: (node, children) => <Text>{children}</Text>,
-      },
-      renderNode: {
         [BLOCKS.EMBEDDED_ASSET]: node => {
           return <Comp node={node} />
         },
