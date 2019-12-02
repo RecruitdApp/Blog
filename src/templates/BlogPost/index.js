@@ -122,7 +122,9 @@ class BlogPostTemplate extends React.Component {
                 }}
               />*/}
               {post.postBody ? (
-                documentToReactComponents(post.postBody.json, options)
+                <div className={styles.content}>
+                  {documentToReactComponents(post.postBody.json, options)}
+                </div>
               ) : (
                 <div
                   className={styles.content}
