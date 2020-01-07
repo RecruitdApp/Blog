@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {
   FacebookShareButton,
-  GooglePlusShareButton,
   LinkedinShareButton,
   TwitterShareButton,
   WhatsappShareButton,
@@ -10,7 +9,6 @@ import {
   FacebookIcon,
   TwitterIcon,
   WhatsappIcon,
-  GooglePlusIcon,
   LinkedinIcon,
   RedditIcon,
 } from 'react-share'
@@ -34,12 +32,6 @@ const Share = ({ socialConfig, tags }) => (
     >
       <TwitterIcon size={32} round={true} />
     </TwitterShareButton>
-    <GooglePlusShareButton
-      url={socialConfig.config.url}
-      className="button is-outlined is-rounded googleplus"
-    >
-      <GooglePlusIcon size={32} round={true} />
-    </GooglePlusShareButton>
     <LinkedinShareButton
       url={socialConfig.config.url}
       className="button is-outlined is-rounded linkedin"

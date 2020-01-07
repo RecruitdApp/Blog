@@ -1,8 +1,9 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import Helmet from 'react-helmet'
 import Layout from '../components/Layout'
 import ArticlePreview from '../components/Article'
+import styled from 'styled-components'
 
 class RootIndex extends React.Component {
   render() {
@@ -23,12 +24,24 @@ class RootIndex extends React.Component {
                 )
               })}
             </ul>
+            <Pagination>
+              <Link to="/archive/2" rel="next">
+                Next Page →
+              </Link>
+            </Pagination>
           </div>
         </div>
       </Layout>
     )
   }
 }
+
+const Pagination = styled.div`
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+`
 
 export default RootIndex
 
@@ -40,7 +53,10 @@ export const pageQuery = graphql`
         description
       }
     }
-    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
+    allContentfulBlogPost(
+      sort: { fields: [publishDate], order: DESC }
+      limit: 10
+    ) {
       edges {
         node {
           title

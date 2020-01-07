@@ -10,7 +10,7 @@ const HeaderButtons = styled.div`
   }
 
   .button {
-    background: rgb(0, 74, 109);
+    background: #0a2444;
     border-radius: 4px;
     color: #ffffff;
     cursor: pointer;

@@ -20,12 +20,14 @@ const Comp = ({ node }) => {
   const [asset, setAsset] = useState(undefined)
 
   const id = node.data.target.sys.id.substring(1)
-  useEffect(() => {
-    getAssets(id).then(asset => {
-      setAsset(asset)
-    })
-  }, [id])
-  // console.log(asset)
+  useEffect(
+    () => {
+      getAssets(id).then(asset => {
+        setAsset(asset)
+      })
+    },
+    [id]
+  )
 
   return (
     <>
@@ -92,6 +94,15 @@ class BlogPostTemplate extends React.Component {
               <div className={styles.articleHeader}>
                 <h1>{post.title}</h1>
                 <p>{post.publishDate}</p>
+                <Share
+                  socialConfig={{
+                    twitterHandle,
+                    config: {
+                      url: `${shareUrl}${shareSlug}`,
+                      title: shareTitle,
+                    },
+                  }}
+                />
               </div>
               <div className={styles.articleAuthor}>
                 <Img
@@ -112,15 +123,7 @@ class BlogPostTemplate extends React.Component {
                   </p>
                 </div>
               </div>
-              {/*<Share
-                socialConfig={{
-                  twitterHandle,
-                  config: {
-                    url: `${shareUrl}${shareSlug}`,
-                    title: shareTitle,
-                  },
-                }}
-              />*/}
+
               {post.postBody ? (
                 <div className={styles.content}>
                   {documentToReactComponents(post.postBody.json, options)}

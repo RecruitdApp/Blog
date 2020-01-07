@@ -44,7 +44,7 @@ const DropdownLink = styled.button`
 `
 
 const ProductMenu = styled.div`
-  background: #004a6d;
+  background: #0a2444;
   border-radius: 4px;
   box-shadow: 0 5px 20px -5px rgba(50, 50, 93, 0.25);
   color: #ffffff;

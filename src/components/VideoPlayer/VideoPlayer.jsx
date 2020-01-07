@@ -16,6 +16,7 @@ export default function VideoPlayer({ src }) {
           className={
             'media-player' + (isFullscreen ? ' media-player--fullscreen' : '')
           }
+          // eslint-disable-next-line
           tabIndex="0"
         >
           <Player src={src} onClick={() => playPause()} />
