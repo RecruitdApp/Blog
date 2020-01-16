@@ -31,14 +31,18 @@ const Comp = ({ node }) => {
 
   return (
     <>
-      {asset && asset.fields.file.contentType === 'image/png' ? (
-        <p>
-          <img src={asset.fields.file.url} alt={asset.fields.file.fileName} />
-        </p>
-      ) : asset && asset.fields.file.contentType === 'video/mp4' ? (
-        <div style={{ marginBottom: 30 }}>
-          <VideoPlayer autoPlay={false} src={asset.fields.file.url} />
-        </div>
+      {asset && asset.fields ? (
+        asset && asset.fields.file.contentType === 'image/png' ? (
+          <p>
+            <img src={asset.fields.file.url} alt={asset.fields.file.fileName} />
+          </p>
+        ) : asset && asset.fields.file.contentType === 'video/mp4' ? (
+          <div style={{ marginBottom: 30 }}>
+            <VideoPlayer autoPlay={false} src={asset.fields.file.url} />
+          </div>
+        ) : (
+          ''
+        )
       ) : (
         ''
       )}
