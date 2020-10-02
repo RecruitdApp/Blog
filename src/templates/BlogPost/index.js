@@ -108,25 +108,29 @@ class BlogPostTemplate extends React.Component {
                   }}
                 />
               </div>
-              <div className={styles.articleAuthor}>
-                <Img
-                  className={styles.authorAvatar}
-                  alt={post.author.name}
-                  fixed={post.author.image.fixed}
-                  style={{
-                    position: 'relative',
-                    overflow: 'hidden',
-                    width: '40px',
-                    height: '40px',
-                  }}
-                />
-                <div className={styles.authorDetails}>
-                  <span className={styles.authorName}>{post.author.name}</span>
-                  <p className={styles.authorDescription}>
-                    {post.author.shortBio.shortBio}
-                  </p>
+              {post.author && (
+                <div className={styles.articleAuthor}>
+                  <Img
+                    className={styles.authorAvatar}
+                    alt={post.author.name}
+                    fixed={post.author.image.fixed}
+                    style={{
+                      position: 'relative',
+                      overflow: 'hidden',
+                      width: '40px',
+                      height: '40px',
+                    }}
+                  />
+                  <div className={styles.authorDetails}>
+                    <span className={styles.authorName}>
+                      {post.author.name}
+                    </span>
+                    <p className={styles.authorDescription}>
+                      {post.author.shortBio.shortBio}
+                    </p>
+                  </div>
                 </div>
-              </div>
+              )}
 
               {post.postBody ? (
                 <div className={styles.content}>
