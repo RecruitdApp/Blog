@@ -10,22 +10,24 @@ export default ({ article }) => (
       <h3 className={styles.articleTitle}>{article.title}</h3>
       <p className={styles.articleExcerpt}>{article.description.description}</p>
     </Link>
-
-    <div className={styles.articleAuthor}>
-      <Img
-        className={styles.articleAvatar}
-        alt={article.author.name}
-        fixed={article.author.image.fixed}
-        style={{
-          position: 'relative',
-          overflow: 'hidden',
-          display: 'inlineBlock',
-          width: '30px',
-          height: '30px',
-        }}
-      />
-      {article.author.name} <span>{article.publishDate}</span>
-    </div>
+    {article &&
+      article.author && (
+        <div className={styles.articleAuthor}>
+          <Img
+            className={styles.articleAvatar}
+            alt={article.author.name}
+            fixed={article.author.image.fixed}
+            style={{
+              position: 'relative',
+              overflow: 'hidden',
+              display: 'inlineBlock',
+              width: '30px',
+              height: '30px',
+            }}
+          />
+          {article.author.name} <span>{article.publishDate}</span>
+        </div>
+      )}
     <Link to={`/${article.slug}`} className={styles.articleLink} />
   </article>
 )
