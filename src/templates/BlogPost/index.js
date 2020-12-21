@@ -110,17 +110,19 @@ class BlogPostTemplate extends React.Component {
               </div>
               {post.author && (
                 <div className={styles.articleAuthor}>
-                  <Img
-                    className={styles.authorAvatar}
-                    alt={post.author.name}
-                    fixed={post.author.image.fixed}
-                    style={{
-                      position: 'relative',
-                      overflow: 'hidden',
-                      width: '40px',
-                      height: '40px',
-                    }}
-                  />
+                  {post.author.image && (
+                    <Img
+                      className={styles.authorAvatar}
+                      alt={post.author.name}
+                      fixed={post.author.image.fixed}
+                      style={{
+                        position: 'relative',
+                        overflow: 'hidden',
+                        width: '40px',
+                        height: '40px',
+                      }}
+                    />
+                  )}
                   <div className={styles.authorDetails}>
                     <span className={styles.authorName}>
                       {post.author.name}
