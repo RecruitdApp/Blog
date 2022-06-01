@@ -40,7 +40,7 @@
     "react-motion-ui-pack": "^0.10.3",
     "react-share": "^4.0.0",
     "sass": "^1.24.2",
-    "sharp": "^0.23.4",
+    "sharp": "^0.30.5",
     "styled-components": "^4.4.1",
     "webpack": "^4.41.5",
     "webpack-dev-server": "^3.10.1"
